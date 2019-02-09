@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Course Assistant</string>
+
+    <string name="hint_name">Name</string>
+    <string name="hint_total_course">Total course</string>
+    <string name="hint_total_semester">Total semester</string>
+    <string name="hint_total_credit">Total credit</string>
+
+    <string name="text_university">University</string>
+    <string name="text_department">Department</string>
+
 </resources>
