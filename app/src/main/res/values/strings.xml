@@ -8,5 +8,6 @@
 
     <string name="text_university">University</string>
     <string name="text_department">Department</string>
+    <string name="text_sign_in">Sign in</string>
 
 </resources>

@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/input_holder"
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_centerInParent="true"
@@ -93,6 +94,20 @@
             android:hint="@string/hint_total_credit"/>
 
     </LinearLayout>
+
+    <TextView
+        android:layout_below="@id/input_holder"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/arch"
+        android:paddingLeft="16dp"
+        android:textColor="@color/mainBackground"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingRight="16dp"
+        android:text="@string/text_sign_in"
+        android:layout_width="80dp"
+        android:layout_height="30dp" />
 
 
 
