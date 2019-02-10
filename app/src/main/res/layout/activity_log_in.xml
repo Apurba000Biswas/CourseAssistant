@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@color/mainBackground"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LogInActivity">
 
     <LinearLayout
         android:id="@+id/input_holder"
@@ -97,6 +97,7 @@
     </LinearLayout>
 
     <TextView
+        android:onClick="signInClicked"
         android:layout_below="@id/input_holder"
         android:layout_centerInParent="true"
         android:background="@drawable/arch"
@@ -109,4 +110,13 @@
         android:layout_width="80dp"
         android:layout_height="30dp" />
 
+    <TextView
+        android:textSize="16sp"
+        android:layout_margin="16dp"
+        android:id="@+id/tv_state"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/inputTextField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </RelativeLayout>
