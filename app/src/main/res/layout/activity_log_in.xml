@@ -97,6 +97,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tv_sign_in"
         android:onClick="signInClicked"
         android:layout_below="@id/input_holder"
         android:layout_centerInParent="true"
@@ -107,11 +108,11 @@
         android:gravity="center"
         android:paddingRight="16dp"
         android:text="@string/text_sign_in"
-        android:layout_width="80dp"
+        android:layout_width="wrap_content"
         android:layout_height="30dp" />
 
     <TextView
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:layout_margin="16dp"
         android:id="@+id/tv_state"
         android:layout_alignParentBottom="true"

@@ -12,6 +12,8 @@
 
     <string name="no_internet">No Internet Connection</string>
     <string name="sign_in_success">You signed in: </string>
-    <string name="log_in_failed">"Log in failed :(</string>
+    <string name="log_in_failed">"Log in failed</string>
+
+    <string name="add_profile">Add Profile</string>
 
 </resources>
