@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@color/mainBackground"
     android:layout_height="match_parent"
-    tools:context=".LogInActivity">
+    tools:context=".activity.LogInActivity">
 
     <LinearLayout
         android:id="@+id/input_holder"

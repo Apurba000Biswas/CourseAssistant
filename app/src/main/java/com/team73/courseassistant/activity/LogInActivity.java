@@ -1,4 +1,4 @@
-package com.team73.courseassistant;
+package com.team73.courseassistant.activity;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -18,6 +18,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.team73.courseassistant.R;
 import com.team73.courseassistant.utils.Network;
 
 public class LogInActivity extends AppCompatActivity implements
@@ -71,7 +72,10 @@ public class LogInActivity extends AppCompatActivity implements
                 stateTextView.setText(resources.getString(R.string.no_internet));
             }
         }else if (TextUtils.equals(text, resources.getString(R.string.add_profile))){
-            Toast.makeText(this, "OK Profile Added", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "OK Profile Added", Toast.LENGTH_SHORT).show();
+            Intent mainActivityIntent = new Intent(this, MainActivity.class);
+            startActivity(mainActivityIntent);
+            finish();
         }
     }
 
