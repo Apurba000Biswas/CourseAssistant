@@ -32,4 +32,15 @@
         android:layout_gravity="bottom"
         app:tabMode="fixed" />
 
+    <ImageView
+        android:onClick="addClicked"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/iv_add"
+        android:src="@drawable/ic_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>

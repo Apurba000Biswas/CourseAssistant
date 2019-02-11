@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.team73.courseassistant.R;
 import com.team73.courseassistant.adapters.courseFragmentPgAdapter;
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.BaseOnT
 
         ViewPager viewPager = findViewById(R.id.view_pager);
         courseFragmentPgAdapter adapter =
-                new courseFragmentPgAdapter(getSupportFragmentManager(), this);
+                new courseFragmentPgAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
@@ -34,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements TabLayout.BaseOnT
         tabLayout.addOnTabSelectedListener(this);
 
         setTab(tabLayout);
+
+        ImageView ivAdd = findViewById(R.id.iv_add);
+        ivAdd.bringToFront();
     }
 
     private void setTab(TabLayout tabLayout){
@@ -87,5 +93,9 @@ public class MainActivity extends AppCompatActivity implements TabLayout.BaseOnT
     public void onTabReselected(TabLayout.Tab tab) {
         Drawable drawable = tab.getIcon();
         setSelectedColor(drawable);
+    }
+
+    public void addClicked(View view) {
+        Toast.makeText(this, "Add clicked", Toast.LENGTH_SHORT).show();
     }
 }
