@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Course Assistant</string>
 
+    <string name="app_label">Course Assistant</string>
+
     <string name="hint_name">Name</string>
     <string name="hint_total_course">Total course</string>
     <string name="hint_total_semester">Total semester</string>
@@ -17,6 +19,6 @@
     <string name="add_profile">Add Profile</string>
 
     <string name="search_menu_text">Search</string>
-    <string name="search_hint">Enter CourseCode</string>
+    <string name="search_hint">Enter Course Code</string>
 
 </resources>

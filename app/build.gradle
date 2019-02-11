@@ -26,4 +26,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
+    implementation 'org.jetbrains:annotations-java5:15.0'
 }
