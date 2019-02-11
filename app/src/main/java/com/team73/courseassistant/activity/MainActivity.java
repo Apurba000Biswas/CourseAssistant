@@ -1,14 +1,15 @@
 package com.team73.courseassistant.activity;
 
-import android.graphics.Color;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.team73.courseassistant.R;
+import com.team73.courseassistant.adapters.courseFragmentPgAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +22,13 @@ public class MainActivity extends AppCompatActivity {
         mTopToolbar.setTitle("");
         setSupportActionBar(mTopToolbar);
 
+        ViewPager viewPager = findViewById(R.id.view_pager);
+        courseFragmentPgAdapter adapter =
+                new courseFragmentPgAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
+
+        TabLayout tabLayout = findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
 

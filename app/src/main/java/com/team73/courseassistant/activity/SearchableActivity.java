@@ -1,7 +1,6 @@
 package com.team73.courseassistant.activity;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
