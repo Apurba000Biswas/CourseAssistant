@@ -25,15 +25,6 @@
         android:paddingBottom="80dp"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:layout_gravity="center_vertical"
-            android:layout_width="230dp"
-            android:layout_height="30dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:textSize="15sp"
-            android:background="@drawable/arch"
-            android:hint="@string/hint_name"/>
 
         <LinearLayout
             android:layout_marginTop="8dp"

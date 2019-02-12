@@ -1,10 +1,12 @@
 package com.team73.courseassistant.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -19,6 +21,7 @@ import com.team73.courseassistant.adapters.logInFragmentPagerAdapter;
 import com.team73.courseassistant.interfaces.MainActivityLauncherListener;
 
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
 import me.relex.circleindicator.CircleIndicator;
 
@@ -44,34 +47,14 @@ public class LogInActivity extends BaseActivity implements
     public void onDoneClicked() {
         Intent mainActivityIntent = new Intent(this, MainActivity.class);
         startActivity(mainActivityIntent);
-        showData();
         //finish();
     }
 
-    private void showData(){
-        DatabaseReference userTable = fbDatabase.child("courseassistant/users");
-        Query query = userTable.orderByChild("name").equalTo("Apurba");
-
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot data) {
-                // data is an array of matched query
-                User user = data.getChildren().iterator().next().getValue(User.class);
-                Log.v("LoginActivity", "" + user.toString());
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
 
     @Override
-    public void checkAndLunch(GoogleSignInAccount acct) {
+    public void checkAndLunch(final GoogleSignInAccount acct) {
         final String signedEmail = acct.getEmail();
-        DatabaseReference userTable = fbDatabase.child("courseassistant/users");
+        final DatabaseReference userTable = fbDatabase.child("courseassistant/users");
         Query query = userTable.orderByChild("email").equalTo(signedEmail);
 
         query.addValueEventListener(new ValueEventListener() {
@@ -79,14 +62,22 @@ public class LogInActivity extends BaseActivity implements
             public void onDataChange(@NonNull DataSnapshot data) {
                 try {
                     User user = data.getChildren().iterator().next().getValue(User.class);
-                    if (user.email.equals(signedEmail)){
+                    if (Objects.requireNonNull(user).email.equals(signedEmail)){
                         Intent mainActivityIntent =
                                 new Intent(LogInActivity.this, MainActivity.class);
                         startActivity(mainActivityIntent);
                     }
                 } catch (NoSuchElementException e){
                     // not exist
-                    Toast.makeText(LogInActivity.this, "Sorry", Toast.LENGTH_SHORT).show();
+                    TextView tvState = findViewById(R.id.tv_state);
+                    tvState.setText(getResources().getString(R.string.no_record));
+                    //String signedName = acct.getDisplayName();
+                    //String signedPhotoUrl = "" + acct.getPhotoUrl();
+
+                    DatabaseReference newUser = userTable.push();
+                    //newUser.child("email").setValue(signedEmail);
+                    //newUser.child("name").setValue(signedName);
+                    //newUser.child("photo").setValue(signedPhotoUrl);
                 }
 
 
@@ -97,5 +88,7 @@ public class LogInActivity extends BaseActivity implements
 
             }
         });
+
+
     }
 }

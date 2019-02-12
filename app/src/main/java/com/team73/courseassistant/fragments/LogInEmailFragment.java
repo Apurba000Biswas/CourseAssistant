@@ -105,8 +105,8 @@ public class LogInEmailFragment extends Fragment implements
             if (result.isSuccess()) {
                 GoogleSignInAccount acct = result.getSignInAccount();
                 MainActivityLauncherListener listener = (MainActivityLauncherListener) getContext();
+                assert listener != null;
                 listener.checkAndLunch(acct);
-                //Toast.makeText(getContext(), "Signed as : " + acct.getEmail(), Toast.LENGTH_SHORT).show();
 
             } else {
                 Toast.makeText(getContext(), "Failed ", Toast.LENGTH_SHORT).show();

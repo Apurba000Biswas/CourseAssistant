@@ -24,6 +24,8 @@
     <string name="sign_in_prompt">Let us know who you are?</string>
     <string name="add_profile_prompt">Enter your Educational State</string>
 
+    <string name="no_record">No Record Found. Create Your Profile</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
