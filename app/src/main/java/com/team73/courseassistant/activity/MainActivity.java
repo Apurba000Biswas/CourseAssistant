@@ -23,10 +23,6 @@ public class MainActivity extends AppCompatActivity implements TabLayout.BaseOnT
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar mTopToolbar = findViewById(R.id.toolbar);
-        mTopToolbar.setTitle("");
-        setSupportActionBar(mTopToolbar);
-
         ViewPager viewPager = findViewById(R.id.view_pager);
         courseFragmentPgAdapter adapter =
                 new courseFragmentPgAdapter(getSupportFragmentManager());
@@ -40,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements TabLayout.BaseOnT
 
         ImageView ivAdd = findViewById(R.id.iv_add);
         ivAdd.bringToFront();
+        ImageView ivSearch = findViewById(R.id.iv_search);
+        ivSearch.bringToFront();
     }
 
     private void setTab(TabLayout tabLayout){
@@ -59,24 +57,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.BaseOnT
     private void setUnselectedColor(Drawable drawable){
         drawable.setColorFilter( 0xffffffff, PorterDuff.Mode.MULTIPLY );
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_search) {
-            onSearchRequested();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
+    
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         Drawable drawable = tab.getIcon();
@@ -97,5 +78,9 @@ public class MainActivity extends AppCompatActivity implements TabLayout.BaseOnT
 
     public void addClicked(View view) {
         Toast.makeText(this, "Add clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    public void searchClicked(View view) {
+        onSearchRequested();
     }
 }

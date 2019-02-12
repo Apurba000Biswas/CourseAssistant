@@ -6,15 +6,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activity.MainActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        style="@style/HeaderBar"
-        android:elevation="10dp" />
 
     <android.support.v4.view.ViewPager
-        android:layout_below="@id/toolbar"
+
         android:layout_above="@id/tabs"
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
@@ -34,12 +28,22 @@
 
     <ImageView
         android:onClick="addClicked"
-        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:id="@+id/iv_add"
         android:src="@drawable/ic_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:onClick="searchClicked"
+        android:id="@+id/iv_search"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
