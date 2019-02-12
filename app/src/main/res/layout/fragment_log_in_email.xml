@@ -5,6 +5,15 @@
     android:layout_height="match_parent"
     tools:context=".fragments.LogInEmailFragment">
 
+    <TextView
+        android:padding="20dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/promptColor"
+        android:text="@string/sign_in_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 
     <LinearLayout
         android:id="@+id/ll_sign_in"

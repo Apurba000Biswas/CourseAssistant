@@ -9,4 +9,7 @@
     <color name="logInTextColor">#C3962E</color>
 
     <color name="viewPagerBack">#372954</color>
+
+    <color name="promptColor">#cfbdd1</color>
+    <color name="archColor">#ebe5ec</color>
 </resources>

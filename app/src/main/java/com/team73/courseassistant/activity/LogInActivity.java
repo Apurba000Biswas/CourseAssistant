@@ -17,7 +17,7 @@ public class LogInActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_in2);
+        setContentView(R.layout.activity_log_in);
 
         ViewPager viewPager = findViewById(R.id.log_tabs);
         logInFragmentPagerAdapter adapter =
@@ -34,5 +34,6 @@ public class LogInActivity extends AppCompatActivity implements
     public void onDoneClicked() {
         Intent mainActivityIntent = new Intent(this, MainActivity.class);
         startActivity(mainActivityIntent);
+        //finish();
     }
 }
