@@ -19,10 +19,11 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.team73.courseassistant.R;
 import com.team73.courseassistant.adapters.logInFragmentPagerAdapter;
+import com.team73.courseassistant.interfaces.MainActivityLuncherListener;
 
 import me.relex.circleindicator.CircleIndicator;
 
-public class LogInActivity2 extends AppCompatActivity {
+public class LogInActivity2 extends AppCompatActivity implements MainActivityLuncherListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,4 +41,9 @@ public class LogInActivity2 extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onDoneClicked() {
+        Intent mainActivityIntent = new Intent(this, MainActivity.class);
+        startActivity(mainActivityIntent);
+    }
 }
