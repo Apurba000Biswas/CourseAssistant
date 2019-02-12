@@ -1,1 +1,55 @@
-{"web":{"client_id":"1045048270600-cutkjrj898o5fm3hdqi7b3p28hk2d4rr.apps.googleusercontent.com","project_id":"courseassistant","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"ZG4LjTofelcicOfuiMab9e6J"}}
+{
+  "project_info": {
+    "project_number": "1045048270600",
+    "firebase_url": "https://courseassistant.firebaseio.com",
+    "project_id": "courseassistant",
+    "storage_bucket": "courseassistant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045048270600:android:aaa686d70973da88",
+        "android_client_info": {
+          "package_name": "com.team73.courseassistant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045048270600-ijokp31uljv7gs0nt4saeb7m8qgki5ea.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.team73.courseassistant",
+            "certificate_hash": "b6e6317c837ac06ae6249cbb21087dfc3b940a91"
+          }
+        },
+        {
+          "client_id": "1045048270600-efd50k69jla1f1ef5uc1fk3kacmspdes.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqTYyRSPW-zCS5-U2LZndsfcz0HJa8cmQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045048270600-efd50k69jla1f1ef5uc1fk3kacmspdes.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
