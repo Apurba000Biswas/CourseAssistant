@@ -1,5 +1,5 @@
 package com.team73.courseassistant.interfaces;
 
-public interface MainActivityLuncherListener {
+public interface MainActivityLauncherListener {
     void onDoneClicked();
 }

@@ -1,7 +1,5 @@
 package com.team73.courseassistant.fragments;
 
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,8 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.team73.courseassistant.R;
-import com.team73.courseassistant.activity.MainActivity;
-import com.team73.courseassistant.interfaces.MainActivityLuncherListener;
+import com.team73.courseassistant.interfaces.MainActivityLauncherListener;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -40,8 +37,8 @@ public class LogInAddProfileFragment extends Fragment {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivityLuncherListener listener =
-                        (MainActivityLuncherListener) getContext();
+                MainActivityLauncherListener listener =
+                        (MainActivityLauncherListener) getContext();
                 assert listener != null;
                 listener.onDoneClicked();
             }

@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.LogInActivity2">
+        <activity android:name=".activity.LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,9 +25,6 @@
             <meta-data
                 android:name="android.app.default_searchable"
                 android:value=".activity.SearchableActivity" />
-        </activity>
-        <activity android:name=".activity.LogInActivity">
-
         </activity>
         <activity android:name=".activity.SearchableActivity">
             <intent-filter>

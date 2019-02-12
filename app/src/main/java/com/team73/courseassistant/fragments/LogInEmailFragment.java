@@ -56,7 +56,7 @@ public class LogInEmailFragment extends Fragment implements
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Network.isConnectedToInternet(getContext())){
+                if (Network.isConnectedToInternet(Objects.requireNonNull(getContext()))){
                     // connect to Google server to log in
                     if (google != null){
                         Intent intent = Auth.GoogleSignInApi.getSignInIntent(google);
