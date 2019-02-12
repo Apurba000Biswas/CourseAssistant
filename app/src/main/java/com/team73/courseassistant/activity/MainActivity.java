@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.BaseOnT
     private void setUnselectedColor(Drawable drawable){
         drawable.setColorFilter( 0xffffffff, PorterDuff.Mode.MULTIPLY );
     }
-    
+
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         Drawable drawable = tab.getIcon();
