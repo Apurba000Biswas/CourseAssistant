@@ -19,6 +19,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.team73.courseassistant.R;
+import com.team73.courseassistant.interfaces.MainActivityLauncherListener;
 import com.team73.courseassistant.utils.Network;
 
 import org.jetbrains.annotations.NotNull;
@@ -103,8 +104,9 @@ public class LogInEmailFragment extends Fragment implements
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(intent);
             if (result.isSuccess()) {
                 GoogleSignInAccount acct = result.getSignInAccount();
-
-                Toast.makeText(getContext(), "Signed as : " + acct.getEmail(), Toast.LENGTH_SHORT).show();
+                MainActivityLauncherListener listener = (MainActivityLauncherListener) getContext();
+                listener.checkAndLunch(acct);
+                //Toast.makeText(getContext(), "Signed as : " + acct.getEmail(), Toast.LENGTH_SHORT).show();
 
             } else {
                 Toast.makeText(getContext(), "Failed ", Toast.LENGTH_SHORT).show();
