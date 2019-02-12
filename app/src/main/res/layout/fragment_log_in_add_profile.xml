@@ -109,7 +109,6 @@
 
         <TextView
             android:id="@+id/tv_add_profile"
-            android:paddingLeft="5dp"
             android:textColor="@color/mainBackground"
             android:textStyle="bold"
             android:gravity="center"
