@@ -3,20 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     tools:context=".fragments.LogInEmailFragment">
 
 
-    <TextView
-        android:id="@+id/tv_sign_in_email"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_centerInParent="true"
         android:background="@drawable/arch"
-        android:paddingLeft="16dp"
-        android:textColor="@color/mainBackground"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:paddingRight="16dp"
-        android:text="@string/text_sign_in"
         android:layout_width="wrap_content"
-        android:layout_height="30dp" />
+        android:layout_height="35dp">
+        <ImageView
+            android:padding="5dp"
+            android:src="@drawable/ic_google"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_sign_in_email"
+            android:paddingLeft="10dp"
+            android:textColor="@color/mainBackground"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingRight="16dp"
+            android:text="@string/text_sign_in"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp" />
+    </LinearLayout>
+
+
 </RelativeLayout>

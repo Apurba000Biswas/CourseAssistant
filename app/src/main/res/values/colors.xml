@@ -7,4 +7,6 @@
     <color name="mainBackground">#2F3253</color>
     <color name="inputTextField">#FFFFFF</color>
     <color name="logInTextColor">#C3962E</color>
+
+    <color name="viewPagerBack">#372954</color>
 </resources>

@@ -16,7 +16,7 @@
     <string name="sign_in_success">You signed in: </string>
     <string name="log_in_failed">"Log in failed</string>
 
-    <string name="add_profile">Add Profile</string>
+    <string name="add_profile">Done</string>
 
     <string name="search_menu_text">Search</string>
     <string name="search_hint">Enter Course Code</string>
