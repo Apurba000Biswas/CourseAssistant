@@ -44,6 +44,15 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
+        <EditText
+            android:textSize="15sp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/arch"
+            android:hint="@string/hint_university"
+            android:paddingLeft="10dp"
+            android:layout_width="150dp"
+            android:layout_height="25dp" />
+
         <LinearLayout
             android:layout_marginTop="8dp"
             android:orientation="horizontal"
@@ -61,6 +70,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
+
+        <EditText
+            android:textSize="15sp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/arch"
+            android:hint="@string/hint_department"
+            android:paddingLeft="10dp"
+            android:layout_width="150dp"
+            android:layout_height="25dp" />
 
         <EditText
             android:layout_marginTop="8dp"
