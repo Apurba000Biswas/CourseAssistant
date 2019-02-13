@@ -42,11 +42,25 @@
                 android:text="@string/text_university"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+
+            <Spinner
+                android:id="@+id/spinner_university"
+                android:layout_width="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:layout_height="wrap_content"
+                android:paddingRight="16dp"
+                android:spinnerMode="dropdown"/>
+
         </LinearLayout>
 
         <EditText
             android:textSize="15sp"
-            android:layout_marginLeft="30dp"
+
             android:background="@drawable/arch"
             android:hint="@string/hint_university"
             android:paddingLeft="10dp"
@@ -69,11 +83,22 @@
                 android:text="@string/text_department"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+
+            <Spinner
+                android:id="@+id/spinner_department"
+                android:layout_width="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:layout_height="wrap_content"
+                android:paddingRight="16dp"
+                android:spinnerMode="dropdown"/>
         </LinearLayout>
 
         <EditText
             android:textSize="15sp"
-            android:layout_marginLeft="30dp"
             android:background="@drawable/arch"
             android:hint="@string/hint_department"
             android:paddingLeft="10dp"
