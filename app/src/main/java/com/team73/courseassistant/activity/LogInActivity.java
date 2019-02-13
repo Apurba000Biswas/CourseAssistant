@@ -18,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.team73.courseassistant.DataModel.User;
 import com.team73.courseassistant.R;
 import com.team73.courseassistant.adapters.logInFragmentPagerAdapter;
+import com.team73.courseassistant.fragments.LogInAddProfileFragment;
 import com.team73.courseassistant.interfaces.MainActivityLauncherListener;
 
 import java.util.NoSuchElementException;
@@ -90,5 +91,9 @@ public class LogInActivity extends BaseActivity implements
         });
 
 
+    }
+
+    public DatabaseReference getfbDatabaseRef(){
+        return fbDatabase;
     }
 }

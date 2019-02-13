@@ -17,7 +17,8 @@ public class logInFragmentPagerAdapter extends FragmentPagerAdapter {
         if (i == 0){
             return new LogInEmailFragment();
         }else{
-            return new LogInAddProfileFragment();
+            LogInAddProfileFragment fragment = new LogInAddProfileFragment();
+            return fragment;
         }
     }
 
