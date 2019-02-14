@@ -1,13 +1,10 @@
 package com.team73.courseassistant.activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.firebase.database.DataSnapshot;
@@ -18,7 +15,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.team73.courseassistant.DataModel.User;
 import com.team73.courseassistant.R;
 import com.team73.courseassistant.adapters.logInFragmentPagerAdapter;
-import com.team73.courseassistant.fragments.LogInAddProfileFragment;
 import com.team73.courseassistant.interfaces.MainActivityLauncherListener;
 
 import java.util.NoSuchElementException;
@@ -89,8 +85,12 @@ public class LogInActivity extends BaseActivity implements
 
             }
         });
+    }
 
-
+    @Override
+    public void setStateMessage(String message) {
+        TextView stateTextView = findViewById(R.id.tv_state);
+        stateTextView.setText(message);
     }
 
     public DatabaseReference getfbDatabaseRef(){

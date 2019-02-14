@@ -107,6 +107,7 @@
             android:layout_height="25dp" />
 
         <EditText
+            android:id="@+id/et_total_course"
             android:layout_marginTop="8dp"
             android:layout_gravity="center_vertical"
             android:layout_width="230dp"
@@ -118,6 +119,7 @@
             android:hint="@string/hint_total_course"/>
 
         <EditText
+            android:id="@+id/et_total_semester"
             android:layout_marginTop="8dp"
             android:layout_gravity="center_vertical"
             android:layout_width="230dp"
@@ -129,6 +131,7 @@
             android:hint="@string/hint_total_semester"/>
 
         <EditText
+            android:id="@+id/et_total_credit"
             android:layout_marginTop="8dp"
             android:layout_gravity="center_vertical"
             android:layout_width="230dp"
