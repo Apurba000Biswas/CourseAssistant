@@ -3,12 +3,14 @@ package com.team73.courseassistant.fragments;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
@@ -37,6 +39,8 @@ public class LogInAddProfileFragment extends Fragment{
     private static final int DEPT_SPINNER_KEY = 1;
 
     private DatabaseReference fbDatabase;
+    private EditText etUniversity;
+    private EditText etDepartment;
 
     public LogInAddProfileFragment() {
         // Required empty public constructor
@@ -51,6 +55,8 @@ public class LogInAddProfileFragment extends Fragment{
         fbDatabase = ((LogInActivity) Objects.requireNonNull(getContext())).getfbDatabaseRef();
         Spinner universitySpinner = rootView.findViewById(R.id.spinner_university);
         Spinner departmentSpinner = rootView.findViewById(R.id.spinner_department);
+        etUniversity = rootView.findViewById(R.id.et_university);
+        etDepartment = rootView.findViewById(R.id.et_department);
         setUpUniversitySpinner(universitySpinner);
         setUpDepartmentSpinner(departmentSpinner);
         setDoneClicked(rootView);
@@ -103,11 +109,15 @@ public class LogInAddProfileFragment extends Fragment{
         spinner.setAdapter(uniSpinnerAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (key == UNI_SPINNER_KEY){
-                    //its University spinner
-                }else if (key == DEPT_SPINNER_KEY){
-                    // its Department spinner
+            public void onItemSelected(AdapterView<?> parent,
+                                       View view, int position, long id) {
+                String selection = (String) parent.getItemAtPosition(position);
+                if (!TextUtils.isEmpty(selection)){
+                    if (key == UNI_SPINNER_KEY){
+                        etUniversity.setText(selection);
+                    }else if (key == DEPT_SPINNER_KEY){
+                        etDepartment.setText(selection);
+                    }
                 }
             }
 
