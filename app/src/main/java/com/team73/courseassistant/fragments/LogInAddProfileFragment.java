@@ -84,11 +84,11 @@ public class LogInAddProfileFragment extends Fragment{
         EditText etTotalCredit = rootView.findViewById(R.id.et_total_credit);
 
         try {
-            String university = etUniversity.getText().toString();
+            String university = etUniversity.getText().toString().toUpperCase();
             checkLessOrMoreChar(university, "University");
             checkValidString(university, "University");
 
-            String department = etDepartment.getText().toString();
+            String department = etDepartment.getText().toString().toUpperCase();
             checkLessOrMoreChar(department, "Department");
             checkValidString(department, "Department");
 
@@ -141,6 +141,7 @@ public class LogInAddProfileFragment extends Fragment{
         universityTable.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot data) {
+                universities.clear();
                 for (DataSnapshot ds : data.getChildren()){
                     University uni =  ds.getValue(University.class);
                     assert uni != null;
@@ -195,6 +196,7 @@ public class LogInAddProfileFragment extends Fragment{
         deptTable.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot data) {
+                departments.clear();
                 for (DataSnapshot ds : data.getChildren()){
                     Department dept =  ds.getValue(Department.class);
                     assert dept != null;
