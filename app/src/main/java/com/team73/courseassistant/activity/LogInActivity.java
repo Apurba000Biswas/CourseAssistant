@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.team73.courseassistant.DataModel.User;
+import com.team73.courseassistant.DataModel.UserProfile;
 import com.team73.courseassistant.R;
 import com.team73.courseassistant.adapters.logInFragmentPagerAdapter;
 import com.team73.courseassistant.interfaces.MainActivityLauncherListener;
@@ -24,6 +25,8 @@ import me.relex.circleindicator.CircleIndicator;
 
 public class LogInActivity extends BaseActivity implements
         MainActivityLauncherListener {
+
+    private GoogleSignInAccount acct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +44,23 @@ public class LogInActivity extends BaseActivity implements
 
 
     @Override
-    public void onDoneClicked() {
-        Intent mainActivityIntent = new Intent(this, MainActivity.class);
-        startActivity(mainActivityIntent);
-        //finish();
+    public void onDoneClicked(UserProfile newProfile) {
+        if (acct != null){
+            String email = acct.getEmail();
+            newProfile.setEmail(email);
+            // now do the fire base push operation here
+            Intent mainActivityIntent = new Intent(this, MainActivity.class);
+            startActivity(mainActivityIntent);
+            //finish();
+        }else{
+            TextView stateTextView = findViewById(R.id.tv_state);
+            stateTextView.setText(getResources().getString(R.string.log_in_first));
+        }
     }
-
 
     @Override
     public void checkAndLunch(final GoogleSignInAccount acct) {
+        this.acct = acct;
         final String signedEmail = acct.getEmail();
         final DatabaseReference userTable = fbDatabase.child("courseassistant/users");
         Query query = userTable.orderByChild("email").equalTo(signedEmail);

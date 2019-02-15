@@ -70,7 +70,7 @@ public class LogInAddProfileFragment extends Fragment{
                     MainActivityLauncherListener listener =
                             (MainActivityLauncherListener) getContext();
                     assert listener != null;
-                    listener.onDoneClicked();
+                    listener.onDoneClicked(newProfile);
                 }
             }
         });
@@ -99,7 +99,8 @@ public class LogInAddProfileFragment extends Fragment{
             checkLessOrMoreChar(etTotalCredit.getText().toString(), "Total credit");
             int totalCredit = getValidNum(etTotalCredit.getText().toString(), "Total credit");
 
-            
+            return new UserProfile(university
+                    , department, totalCourse, totalSemester, totalCredit);
         } catch (IllegalArgumentException e){
             MainActivityLauncherListener listener =
                     (MainActivityLauncherListener) getContext();
@@ -107,7 +108,6 @@ public class LogInAddProfileFragment extends Fragment{
             listener.setStateMessage(e.getMessage());
             return null;
         }
-        return null;
     }
 
     private int getValidNum(String input, String tag){
