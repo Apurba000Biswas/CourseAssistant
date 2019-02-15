@@ -75,6 +75,7 @@ public class LogInEmailFragment extends Fragment implements
         // request the user's ID, email address, and basic profile
         GoogleSignInOptions options = new GoogleSignInOptions.Builder(
                 GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -106,7 +107,7 @@ public class LogInEmailFragment extends Fragment implements
                 GoogleSignInAccount acct = result.getSignInAccount();
                 MainActivityLauncherListener listener = (MainActivityLauncherListener) getContext();
                 assert listener != null;
-                listener.checkAndLunch(acct);
+                listener.firebaseAuthWithGoogleAccount(acct);
 
             } else {
                 Toast.makeText(getContext(), "Failed ", Toast.LENGTH_SHORT).show();

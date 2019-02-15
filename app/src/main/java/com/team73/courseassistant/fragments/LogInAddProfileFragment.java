@@ -84,11 +84,11 @@ public class LogInAddProfileFragment extends Fragment{
         EditText etTotalCredit = rootView.findViewById(R.id.et_total_credit);
 
         try {
-            String university = etUniversity.getText().toString().toUpperCase();
+            String university = etUniversity.getText().toString().trim().toUpperCase();
             checkLessOrMoreChar(university, "University");
             checkValidString(university, "University");
 
-            String department = etDepartment.getText().toString().toUpperCase();
+            String department = etDepartment.getText().toString().trim().toUpperCase();
             checkLessOrMoreChar(department, "Department");
             checkValidString(department, "Department");
 

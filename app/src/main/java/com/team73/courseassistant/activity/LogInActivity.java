@@ -3,11 +3,20 @@ package com.team73.courseassistant.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,9 +59,13 @@ public class LogInActivity extends BaseActivity implements
             String email = acct.getEmail();
             newProfile.setEmail(email);
             // now do the fire base push operation here
+
+
             saveTheProfile(newProfile);
-            Intent mainActivityIntent = new Intent(this, MainActivity.class);
+            Log.v("onDoneCliked", " launching main Activity!");
+            Intent mainActivityIntent = new Intent(LogInActivity.this, MainActivity.class);
             startActivity(mainActivityIntent);
+
             //finish();
         }else{
             TextView stateTextView = findViewById(R.id.tv_state);
@@ -68,6 +81,7 @@ public class LogInActivity extends BaseActivity implements
         // push new Department
         //pushDepartment(profile.department);
         // push new profile
+
         /*
         final DatabaseReference profileTable = fbDatabase.child("courseassistant/profiles");
         DatabaseReference newProf = profileTable.push();
@@ -90,6 +104,7 @@ public class LogInActivity extends BaseActivity implements
                 if (!dataSnapshot.exists()){
                     DatabaseReference newUni = universityTable.push();
                     newUni.child("name").setValue(university);
+                    Log.v("FirebaseMy", "Pushing University");
                 }
                 /*
                 try{
@@ -153,6 +168,8 @@ public class LogInActivity extends BaseActivity implements
                         photo = photoUri.toString();
                     }
                     newUser.child("photo").setValue(photo);
+
+                    Log.v("FirebaseMy", "Pushing User Account!");
                 }
             }
 
@@ -161,33 +178,31 @@ public class LogInActivity extends BaseActivity implements
 
             }
         });
-
-
     }
 
-    @Override
-    public void checkAndLunch(final GoogleSignInAccount acct) {
+
+    public void checkAndLaunch(final GoogleSignInAccount acct) {
         this.acct = acct;
         final String signedEmail = acct.getEmail();
+        /*
         final DatabaseReference userTable = fbDatabase.child("courseassistant/users");
         Query query = userTable.orderByChild("email").equalTo(signedEmail);
 
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot data) {
-                try {
+                if (data.exists()){
                     User user = data.getChildren().iterator().next().getValue(User.class);
                     if (Objects.requireNonNull(user).email.equals(signedEmail)){
                         Intent mainActivityIntent =
                                 new Intent(LogInActivity.this, MainActivity.class);
                         startActivity(mainActivityIntent);
                     }
-                } catch (NoSuchElementException e){
+                }else {
                     // not exist
                     TextView tvState = findViewById(R.id.tv_state);
                     tvState.setText(getResources().getString(R.string.no_record));
                 }
-
 
             }
 
@@ -196,6 +211,29 @@ public class LogInActivity extends BaseActivity implements
 
             }
         });
+        */
+    }
+    @Override
+    public void firebaseAuthWithGoogleAccount(GoogleSignInAccount acct){
+        this.acct = acct;
+        Log.v("GoogleFirebase","account " + acct.getEmail());
+        Log.v("GoogleFirebase","id token " + acct.getIdToken());
+        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            //updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            //updateUI(null);
+                        }
+
+                    }
+                });
     }
 
     @Override
